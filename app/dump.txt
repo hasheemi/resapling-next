@@ -1,0 +1,87 @@
+   <section className="flex flex-col md:flex-row gap-8 px-6 sm:px-12 mx-auto mt-10 pb-24">
+        <section className="donation md:w-[70%]">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {donationCards.map((card, index) => (
+              <DonationCard key={index} {...card} />
+            ))}
+          </div>
+        </section>
+        {/* Sidebar kiri */}
+        <aside className="md:w-[25%] lg:w-[25%] bg-white rounded-xl shadow p-6 h-fit">
+          {/* Progress Circle */}
+          <div className="flex flex-col items-center mb-6">
+            <div className="relative w-20 h-20">
+              {/* Lingkaran progress (78%) */}
+              <div className="absolute inset-0 rounded-full border-[6px] border-gray-200"></div>
+              <div
+                className="absolute inset-0 rounded-full border-[6px] border-leaf-500 border-t-transparent rotate-[280deg]"
+                style={{
+                  clipPath: "inset(0 0 0 0)",
+                  transform: "rotate(140deg)",
+                }}
+              ></div>
+              <i className="bx bx-donate-heart absolute text-3xl text-leaf-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+            </div>
+            <p className="text-sm text-gray-600 mt-2">Progress 78%</p>
+          </div>
+
+          {/* Filter Donasi */}
+          <div className="space-y-5">
+            <div>
+              <h3 className="font-semibold text-gray-800 mb-2">
+                Urutkan Berdasarkan
+              </h3>
+              <div className="flex flex-col space-y-2 text-sm text-gray-700">
+                <label>
+                  <input
+                    type="radio"
+                    name="sort"
+                    className="mr-2 accent-leaf-500"
+                  />
+                  Terbaru
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="sort"
+                    className="mr-2 accent-leaf-500"
+                  />
+                  Terdekat
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-800 mb-2">Jenis Donasi</h3>
+              <div className="flex flex-col space-y-2 text-sm text-gray-700">
+                <label>
+                  <input
+                    type="radio"
+                    name="jenis"
+                    className="mr-2 accent-leaf-500"
+                  />
+                  Pendidikan
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="jenis"
+                    className="mr-2 accent-leaf-500"
+                  />
+                  Kemanusiaan
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="jenis"
+                    className="mr-2 accent-leaf-500"
+                  />
+                  Bencana Alam
+                </label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        {/* Bagian kanan - grid card */}
+      </section>

@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "@/public/assets/css/style.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +14,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://unpkg.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Yesteryear&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://unpkg.com/aos@2.3.2/dist/aos.css"
+          rel="stylesheet"
+        />
+        <script src="https://unpkg.com/aos@2.3.2/dist/aos.js"></script>
+      </head>
+      <body className={` antialiased`}>
         {children}
+        <script src="/assets/js/core.js"></script>
       </body>
     </html>
   );

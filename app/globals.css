@@ -1,26 +1,574 @@
+/* app/globals.css */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Yesteryear&display=swap");
+
 @import "tailwindcss";
 
+/* Gunakan format baru Tailwind untuk variabel tema */
+
+/* Reset ring dan border outlines secara global */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --tw-ring-color: #6fbf68 !important;
+}
+*,
+::after,
+::before,
+::backdrop {
+  --tw-ring-color: #6fbf68 !important;
+}
+/* *:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: inherit !important;
+} */
+
+@theme {
+  --color-leaf-50: #f6fbf6;
+  --color-leaf-100: #eef7ee;
+  --color-leaf-200: #dff0dd;
+  --color-leaf-300: #cfe8cc;
+  --color-leaf-400: #9fd39a;
+  --color-leaf-500: #6fbf68; /* base */
+  --color-leaf-700: #2f7a2f;
+  --color-leaf-950: #0b120b;
+  --color-leaf-975: #061006;
+
+  --font-family-sans: "Open Sans", sans-serif;
+  --font-family-display: "Yesteryear", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+}
+
+.relogo {
+  font-family: "Yesteryear", cursive;
+  margin-left: 1rem;
+}
+
+/* Navigation */
+.nav-toggle {
+  display: flex;
+  padding: 0.5rem;
+  color: black;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.nav-list {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: -0.25rem;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+  .nav-list {
+    flex-direction: row;
+    padding: 0;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    gap: 2rem;
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #1f2937;
+}
+
+@media (min-width: 768px) {
+  .nav-link {
+    padding: 0;
+  }
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #2f7a2f;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 500;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  padding: 1rem 3rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:focus {
+  ring-width: 4px;
+  ring-color: inherit;
+}
+
+.btn-mini {
+  margin-bottom: 0 !important;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #6fbf68;
+}
+
+.btn-primary:hover {
+  background-color: #2f7a2f;
+}
+
+.btn-primary:focus {
+  ring-color: #cfe8cc;
+}
+
+.btn-secondary {
+  color: #1f2937;
+  background-color: white;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #f9fafb;
+  color: #2f7a2f;
+}
+
+.btn-secondary:focus {
+  ring-color: #f9fafb;
+}
+
+/* Details/FAQ */
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+details > summary::after {
+  content: "\ea50";
+  font-size: 30px;
+  font-family: "boxicons";
+  transition: transform 0.2s ease-in-out;
+}
+
+details[open] > summary::after {
+  transform: rotate(90deg);
+  transition: 0.125s ease-in-out;
+}
+
+details[open],
+details[open] summary ~ p {
+  /* background-color: #0b120b; */
+  color: white;
+}
+
+details[open] summary ~ * {
+  animation: sweep 0.2s ease-in-out;
+}
+
+/* Ads Section */
+.ads-circle {
+  animation: spin 10s ease-in-out infinite;
+}
+
+.job-card {
+  width: 60%;
+  height: 4rem;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #2f7a2f;
+}
+
+@media (min-width: 640px) {
+  .job-card {
+    width: 66.666%;
+  }
+}
+
+@media (min-width: 768px) {
+  .job-card {
+    width: 75%;
+  }
+}
+
+.job-icon {
+  font-size: 1.875rem;
+  color: #0b120b;
+}
+
+.job-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .job-title {
+    font-size: 1.125rem;
+  }
+}
+
+/* Jumbotron */
+.jumbo-background,
+.jumbo-image {
+  width: 91.666%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .jumbo-background,
+  .jumbo-image {
+    width: 87%;
+  }
+}
+
+@media (min-width: 768px) {
+  .jumbo-background,
+  .jumbo-image {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .jumbo-background,
+  .jumbo-image {
+    width: 93%;
+  }
+}
+
+.login-page {
+  background-image: url("/assets/img/background/mesh.png") !important;
+  background-repeat: round;
+}
+
+/* Footer */
+footer h2 {
+  font-weight: bold;
+}
+
+footer li {
+  font-weight: 300;
+}
+
+/* Donation Cards */
+.donation-card {
+  background-color: #f9fafb;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  padding: 1rem;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.donation-card:hover {
+  transform: scale(1.05);
+}
+
+.donation-card img {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .donation-card img {
+    height: 12rem;
+  }
+}
+
+.donation-card h3 {
+  color: #0b120b;
+  font-weight: 500;
+}
+
+.donation-card .title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  width: 80%;
+}
+
+.donation-card .target {
+  color: #374151;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.donation-card .target span {
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+
+.donation-progress {
+  width: 100%;
+  background-color: #cfe8cc;
+  border-radius: 9999px;
+  height: 0.625rem;
+  margin-top: 0.5rem;
+}
+
+.donation-progress .full {
+  background-color: #6fbf68;
+  height: 0.625rem;
+  border-radius: 9999px;
+}
+
+.donation-deadline {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Feature Cards */
+.feature-card {
+  background-color: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 18rem;
+  transition: transform 0.2s;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .feature-card {
+    width: 33.333%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feature-card {
+    min-height: 18rem;
+  }
+}
+
+.feature-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.feature-badge {
+  background-color: #0b120b;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+.feature-icon {
+  background-color: #0b120b;
+  color: white;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-size: 1.875rem;
+}
+
+.feature-content {
+  margin-top: 1.5rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.feature-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 300;
+}
+
+/* Team Cards */
+.team-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .team-card {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-card {
+    width: 27%;
+  }
+}
+
+.team-image-wrapper {
+  position: relative;
+}
+
+.team-image {
+  width: 100%;
+  height: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.team-social-icon {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+  background-color: white;
+  color: black;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+}
+
+.team-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.team-role {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Separator */
+.separator {
+  border: 8px solid #0b120b;
+  border-radius: 9999px;
+  display: block;
+  width: 3rem;
+  height: 2rem;
+}
+
+@media (min-width: 640px) {
+  .separator {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .separator {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .separator {
+    width: 2rem;
+    height: 3rem;
+  }
+}
+
+/* Animations */
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-bottom: 5px;
+  }
+  100% {
+    opacity: 1;
+    margin-bottom: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
