@@ -99,7 +99,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <div
-              className="!w-full lg:w-4/5 lg:h-64 relative mt-7 mx-auto md:mx-0 sm:flex sm:justify-center md:justify-normal"
+              className="w-full! lg:w-4/5 lg:h-64 relative mt-7 mx-auto md:mx-0 sm:flex sm:justify-center md:justify-normal"
               data-aos="fade-right"
               data-aos-duration="1000"
             >
@@ -117,14 +117,17 @@ export default function Home() {
               />
             </div>
           </a>
-          <div
+          <a
             className="min-w-max w-3/5 lg:w-1/3 bg-leaf-950 font-medium rounded-xl my-2 sm:my-4 text-white p-4 flex gap-3 items-center shadow-xl"
             data-aos="fade-right"
             data-aos-duration="800"
             data-aos-delay="40"
+            href="https://youtu.be/hvffd4ylG-o?si=QdRihWOzIBZ0-hjX"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="bx bxl-youtube text-xl"></i> Rekam Nusantara
-          </div>
+          </a>
         </div>
         <div
           className="right w-full sm:w-11/12 md:w-1/2 mx-auto md:mx-0"
