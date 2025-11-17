@@ -385,7 +385,6 @@ footer li {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 100%;
   min-height: 18rem;
   transition: transform 0.2s;
@@ -436,7 +435,7 @@ footer li {
 }
 
 .feature-content {
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
 }
 
 .feature-title {
