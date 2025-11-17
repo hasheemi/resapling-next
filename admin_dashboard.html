@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body class="bg-green-50">
+    <div class="drawer drawer-open">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+            <div name="div-1" class="flex flex-col h-screen">
+                <!-- Top Card Div -->
+                <div name="topcard" class="h-[25%] flex items-center justify-center">
+                    <div class="bg-green-100 py-5 min-w-[90%] rounded-box w-xs p-4 shadow-lg flex flex-row gap-[20px]">
+                        <!-- Avatar Icon -->
+                        <div class="avatar">
+                            <div class="w-12 m-[5px] rounded-full border-2">
+                                <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                            </div>
+                        </div>
+                        <!-- Name Badge Div -->
+                        <div class="flex justify-center flex-col gap-[5px]">
+                            <p>Nama Placeholder</p>
+                            <div class="badge badge-warning">Warning</div>
+                        </div>
+                    </div>
+                </div>
+                <div name="div-2" class="flex flex-row justify-center gap-[24px] h-screen mb-[48px] mr-[12px] ml-[12px]">
+                    <div class="right w-[45%]">
+                        <div class="bg-white-100 hover:shadow-lg hover:transition-shadow duration-200 py-5 min-w-[100%] h-[25%] rounded-box w-xs p-4 shadow-sm flex flex-row gap-[20px]">
+                            
+                        </div>
+                        <div class="bg-white-100 hover:shadow-lg hover:transition-shadow duration-200 py-5 min-w-[100%] h-[50%] mt-[24px] rounded-box w-xs p-4 shadow-sm flex flex-row gap-[20px]">
+                            
+                        </div>
+                    </div>
+                    <div class="left w-[45%]">
+                        <div class="bg-white-100 hover:shadow-lg hover:transition-shadow duration-200 py-5 min-w-[100%] h-[50%] rounded-box w-xs p-4 shadow-sm flex flex-row gap-[20px]">
+                            
+                        </div>
+                        <div class="bg-white-100 hover:shadow-lg hover:transition-shadow duration-200 py-5 min-w-[100%] h-[50%] mt-[24px] rounded-box w-xs p-4 shadow-sm flex flex-row gap-[20px]">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="drawer-side text-white !bg-green-700">
+            <label for="my-drawer-1" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu min-h-full w-60 p-4 text-base">
+                <li><a><i class='bx bx-home'></i>Home</a></li>
+                <li><a><i class='bx bx-donate-heart'></i>Buat Komunitas</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
