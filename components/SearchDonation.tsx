@@ -1,9 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar";
-import Jumbotron from "@/components/Jumbotron";
-import Footer from "@/components/Footer";
-import DonationCard from "@/components/DonationCard";
+
 
 export default function Campaign() {
   const [sort, setSort] = useState<"terdekat" | "terbaru">("terdekat");

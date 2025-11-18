@@ -47,7 +47,7 @@ export default function Jumbotron({
         <p className="text-center text-white font-light z-50 mt-2">
           {description}
         </p>
-        <button className="btn rounded-lg mt-4 px-10 py-4 text-blue-900"> Ayo Membantu </button>
+        <a className="btn btn-white-300 rounded-lg mt-4 px-10 py-4 text-green-900"> Ayo Membantu </a>
       </div>
     </section>
   );

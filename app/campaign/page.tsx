@@ -57,7 +57,7 @@ export default function Campaign() {
   );
 }
 
-const donationCards = [
+export const donationCards = [
   {
     image: "/assets/img/item/sinarmas.jpeg",
     title: "Sinarmas",
