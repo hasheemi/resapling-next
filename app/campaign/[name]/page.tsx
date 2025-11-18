@@ -20,6 +20,7 @@ export default function Page({ params }: PageProps) {
             title=""
             height="md:h-[60vh]"
             padding="!px-0"
+            description=""
           />
 
           <TabSection />

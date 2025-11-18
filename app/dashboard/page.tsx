@@ -1,59 +1,31 @@
 "use client";
-
+import Link from "next/link";
+import Campaign from "../campaign/page";
+import Jumbotron from "@/components/Jumbotron";
+import Navbar from "@/components/Navbar";
 import React, { Component } from "react";
 
 export default class Dashboard extends Component {
   render() {
     return (
       <>
-        <link
-          href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css"
-          rel="stylesheet"
-        />
-        <div className="drawer drawer-open" data-theme="dim">
-          <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content flex flex-col items-center">
-            <div className="p-2 w-full flex flex-col gap-2">
-              <div className="p-2 bg-base-200 rounded-box flex flex-row items-center">
-                <div className="w-16 rounded-full overflow-hidden">
-                  <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                </div>
-                <div className="px-4">
-                  <p className="text-lg">Welcome Aaron</p>
-                  <div className="badge badge-warning">Warning</div>
-                </div>
-              </div>
-              <div className="flex flex-row gap-2">
-                <div className="flex flex-1 flex-col gap-2">
-                  <div className="flex flex-col gap-2 rounded-box bg-base-200 p-2">
-                    <div className="flex flex-row">Lorem Ipsum</div>
-                  </div>
-                </div>
-                <div className="flex flex-1 flex-col gap-2">
-                  <div className="rounded-box bg-base-200 p-2">Gurt : Yo</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="!overflow-x-hidden bg-leaf-50">
+          {/*
+          <!-- Navbar --> */}
+          <Navbar />
 
-          <div className="drawer-side">
-            <ul className="menu bg-base-200 min-h-full w-60 p-4">
-              <li>
-                <a className="bg-primary text-primary-content">
-                  <span className="material-symbols-rounded">dashboard</span>
-                  Dashboard
-                </a>
-                <a>
-                  <span className="material-symbols-rounded">home</span>Home
-                </a>
-                <a>
-                  <span className="material-symbols-rounded">
-                    volunteer_activism
-                  </span>
-                  Buat Komunitas
-                </a>
-              </li>
-            </ul>
+          {/*
+          <!-- Topbar --> */}
+          <Jumbotron imageUrl="/assets/img/background/about_background.jpeg"
+            title="Membangkitkan Alam kembali dengan tunas dan harapan"
+            description="Dari pucuk yang merkah, asa bersemi. Setiap tunas adalah janji kehidupan, setapak kecil menghijaukan kembali hamparan bumi." 
+          />
+
+          {/*
+          <!-- Breadcrumbs --> */}
+          <div className="w-full flex flex-row justify-center items-center mt-8 gap-6">
+            <a className="underline text-black-300 font-medium decoration-green-600" href="">Campaign</a>
+            <a className="underline text-black-300 font-medium decoration-green-600" href="">Leaderboard</a>
           </div>
         </div>
       </>

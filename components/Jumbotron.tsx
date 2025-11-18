@@ -4,6 +4,7 @@ import Image from "next/image";
 interface JumbotronProps {
   title: string;
   imageUrl: string;
+  description: string;
   imageAlt?: string;
   height?: string;
   overlayOpacity?: number;
@@ -13,6 +14,7 @@ interface JumbotronProps {
 export default function Jumbotron({
   title,
   imageUrl,
+  description,
   imageAlt = "Background image",
   height = "h-[60vh] md:h-[80vh]",
   overlayOpacity = 80,
@@ -34,13 +36,19 @@ export default function Jumbotron({
         className="object-cover rounded-xl absolute z-10 w-full h-full"
         priority
       />
-      <h1
-        className="font-bold text-white text-4xl md:text-5xl w-3/4 sm:w-1/2 md:w-2/5 absolute z-50 transform m-auto text-center"
-        data-aos="fade-up"
-        data-aos-duration="1500"
-      >
-        {title}
-      </h1>
+      <div className="absolute z-50 transform m-auto w-3/4 sm:w-1/2 md:w-2/5 flex-col flex items-center justify-center">
+        <h1
+          className="font-bold text-white text-4xl md:text-5xl text-center"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          {title}
+        </h1>
+        <p className="text-center text-white font-light z-50 mt-2">
+          {description}
+        </p>
+        <button className="btn rounded-lg mt-4 px-10 py-4 text-blue-900"> Ayo Membantu </button>
+      </div>
     </section>
   );
 }

@@ -26,6 +26,7 @@ export default function About() {
       <Jumbotron
         imageUrl="/assets/img/background/about_background.jpeg"
         title="Tentang Program Resapling"
+        description=""
       />
 
       <section className="idea flex flex-col-reverse md:flex-row-reverse w-full px-6 sm:px-12 mx-auto my-8">
