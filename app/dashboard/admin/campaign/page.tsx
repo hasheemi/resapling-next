@@ -34,9 +34,12 @@ export default function Campaign() {
 
   return (
     <Root show={true}>
-      <div className="w-full p-4">
-        <h3 className="text-3xl text-black"> Halo {userName}</h3>
-        <p className="font-bold"> Kelola Campaign Yayasanmu </p>
+      <div className="w-full p-4 flex justify-between">
+        <div>
+          <h3 className="text-3xl text-black"> Halo {userName}</h3>
+          <p className="font-bold"> Kelola Campaign Yayasanmu </p>
+        </div>
+        <a href="/dashboard/admin/campaign/create" className="flex justify-center items-center bg-leaf-600 hover:bg-leaf-700 text-white w-32 rounded-lg text-sm font-semibold shadow-sm transition-all duration-200 !m-0">Buat Campaign</a>
       </div>
       <div className="!overflow-x-hidden bg-leaf-50">
         <div className="w-full space-y-4">

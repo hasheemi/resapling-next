@@ -22,7 +22,7 @@ function DataCreate(){
         </td>
         <td className="border border-gray-200 p-4 text-center cursor-pointer text-gray-400">
           <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5" fill="none" stroke="currentColor"
-            stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="1" />
             <circle cx="19" cy="12" r="1" />
             <circle cx="5" cy="12" r="1" />
@@ -110,7 +110,7 @@ export default class Data extends Component {
                   <p className="font-bold"> Rp 30.000.000</p>
                 </div>
                 <progress className="progress progress-success w-56 mt-4" value="10" max="100"></progress>
-                <button className="btn btn-success mt-4 w-full "> Check </button>
+                <a href="/campaign/charity" className="btn btn-success mt-4 w-full"> Check </a>
               </div>
           </div>
         </div>

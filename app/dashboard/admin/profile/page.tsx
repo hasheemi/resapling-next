@@ -88,7 +88,8 @@ export default class Profile extends Component {
                     </fieldset>
                 </div>
                 <MediaSosial />
-
+                    <button type="submit" className="mt-4 w-full btn btn-success !text-white">
+                        Simpan </button>
                 {/*
                 <!-- About Me --> */}
             </form>

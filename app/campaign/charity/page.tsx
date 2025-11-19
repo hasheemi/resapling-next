@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Jumbotron from "@/components/Jumbotron";
 import Navbar from "@/components/Navbar";
-import TabSection from "@/app/campaign/[name]/TabSection";
+import TabSection from "@/app/campaign/charity/TabSection";
 
 interface PageProps {
   params: { name: string };

@@ -34,10 +34,11 @@ export default function Campaign() {
   return (
     <Root>
       <div className="!overflow-x-hidden bg-leaf-50">
-        <div className="w-full space-y-4">
+        {/* Filter start */}
+        <div className="w-full space-y-4 fixed z-50 bg-amber-200">
+          <p className="text-2xl font-bold"> Kampanye </p>
           {/* 🔍 Search + Sort + Filter */}
           <div className="search flex flex-row justify-between w-full items-center gap-3 px-6 sm:px-12 mx-auto py-3 bg-leaf-50 rounded-xl shadow-sm">
-            {/* Search Input */}
             <div className="w-[60%] border border-leaf-500 rounded-lg relative">
               <input
                 type="text"
@@ -118,6 +119,7 @@ export default function Campaign() {
             </button>
           </div>
         </div>
+        {/* Filter end */}
         <section className="donation  px-6 sm:px-12 mt-4 pb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-12 mt-10 mx-auto justify-between">
             {donationCards.map((card, index) => (

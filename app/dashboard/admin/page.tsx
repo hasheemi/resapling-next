@@ -22,39 +22,42 @@ export default function Campaign() {
     <Root show={true}>
       <div data-aos="fade-right" >
         <p className="text-3xl font-bold"> Hallo Ridwan </p>
-        <p> Siap menjadi pahlawan hijau hari ini?</p>
+        <p> Siap menjadi pahlawan hijau hari ini? </p>
       </div>
       <div className="grid grid-cols-3 w-full gap-4">
-        <div
-          className="bg-white hover:w-[100px] shadow-xl/20 border-green-950 w-full h-[150px] rounded-2xl p-4"
+        <a
+          className="bg-white shadow-xl/20 border-green-950 w-full h-[150px] rounded-2xl p-4"
           data-aos="flip-up"
+          href="/dashboard/admin/campaign"
         >
-          <div className="bg-green-800 rounded border-2 border-white w-[50px] h-[50px]">
-            Logo
+          <div className="bg-green-800 rounded border-2 border-white w-[50px] h-[50px] flex items-center justify-center">
+            <i className='bx bx-message-add text-white text-2xl'></i>
           </div>
           <p className="text-xl font-bold">Buat Campaign</p>
-        </div>
-        <div
+        </a>
+        <a
           className="bg-white shadow-xl/20 border-green-950 w-full h-[150px] rounded-2xl p-4"
           data-aos="flip-up"
+          href="/dashboard/admin/data"
         >
-          <div className="bg-green-800 rounded border-2 border-white w-[50px] h-[50px]">
-            Logo
+          <div className="bg-green-800 rounded border-2 border-white w-[50px] h-[50px] flex items-center justify-center">
+            <i className='bx bx-box text-white text-2xl'></i>
           </div>
           <p className="text-xl font-bold">Cek Data</p>
-        </div>
-        <div
+        </a>
+        <a
           className="bg-white shadow-xl/20 border-green-950 w-full h-[150px] rounded-2xl p-4"
           data-aos="flip-up"
+          href="/dashboard/admin/profile"
         >
-          <div className="bg-green-800 rounded border-2 border-white w-[50px] h-[50px]">
-            Logo
+          <div className="bg-green-800 rounded border-2 border-white w-[50px] h-[50px] flex items-center justify-center">
+            <i className='bx bx-user text-white text-2xl'></i>
           </div>
           <p className="text-xl font-bold">Update Profil</p>
-        </div>
+        </a>
       </div>
-      <p className="text-3xl font-bold" data-aos="fade-right">Campaign</p>
       <section className="donation pb-20">
+        <p className="text-3xl font-bold" data-aos="fade-right">Campaign</p>
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-12 mt-10 mx-auto justify-between">
           {donationCards.map((card, index) => (
