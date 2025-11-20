@@ -30,7 +30,7 @@ export default function LoginPage() {
       const user = result.user;
 
       // Reference ke document user
-      const userRef = doc(db, "users", user.uid);
+      const userRef = doc(db, "Accounts", user.displayName || '');
 
       // Cek apakah user sudah ada di Firestore
       const userDoc = await getDoc(userRef);
@@ -41,14 +41,20 @@ export default function LoginPage() {
         // Jika user belum ada, buat document baru
         userData = {
           uid: user.uid,
-          name: user.displayName,
+          username: user.displayName,
           email: user.email,
-          photoURL: user.photoURL,
-          phone: null,
+          photo: user.photoURL,
+          telepon_yayasan: null,
           createdAt: Date.now(),
-          accountType: "donatur", // basic | upgraded
-          verificationStatus: "none", // none | pending | approved | rejected
+          npwp_yayasan: null,
+          nama_yayasan: null,
+          medsos_yayasan: null,
+          alamat_yayasan: null,
+          role: "donatur", // basic | upgraded
+          status_yayasan: "none", // none | pending | approved | rejected
         };
+
+        console.log(userData,userData.uid)
 
         // Simpan ke Firestore
         await setDoc(userRef, userData);
