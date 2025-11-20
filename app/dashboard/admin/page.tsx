@@ -20,7 +20,7 @@ export default function Campaign() {
 
   return (
     <Root show={true}>
-      <div data-aos="fade-right" >
+      <div data-aos="fade-right" className="w-full">
         <p className="text-3xl font-bold"> Hallo Ridwan </p>
         <p> Siap menjadi pahlawan hijau hari ini? </p>
       </div>

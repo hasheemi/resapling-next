@@ -1,26 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "../../../hooks/useAuth"; // Import useAuth
+import { useSidebar } from "./SidebarContext";
 
 export default function Sidebar({ show = false }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isTextVisible, setIsTextVisible } = useSidebar();
   const pathname = usePathname();
   const { logout } = useAuth(); // Ambil fungsi logout dari useAuth
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-  const handleLogout = () => {
-    logout(); // Panggil fungsi logout
-    closeMenu();
+  const toggleTextVisibility = () => {
+    setIsTextVisible(!isTextVisible);
   };
 
   const isActive = (path: string) => {
@@ -29,96 +22,154 @@ export default function Sidebar({ show = false }) {
       : "text-leaf-900 rounded-full";
   };
 
+    const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+    const handleLogout = () => {
+    logout(); // Panggil fungsi logout
+    closeMenu();
+  };
+
   return (
-    <div className="flex flex-col">
-      <Link
-        href="/"
-        className="w-full px-4 pt-3 pb-2 flex justify-center items-center space-x-3 relogo"
-        onClick={() => {}}
-      >
-        <span className="self-center text-3xl font-semibold whitespace-nowrap text-leaf-900">
-          Resapling
-        </span>
-      </Link>
-      <ul className="w-60 p-4 h-screen menu">
-        <li>
+    <div
+      className={`flex flex-col ${
+        isTextVisible ? "w-60" : "w-20"
+      } transition-all duration-300`}
+    >
+      <div className="flex flex-row p-4 width-full items-center justify-between">
+        {/* Toggle button */}
+        <button
+          onClick={toggleTextVisibility}
+          className="p-2 rounded-full hover:bg-leaf-100 transition-colors flex items-center justify-between"
+          title={isTextVisible ? "Hide text" : "Show text"}
+        >
+          <span className="material-symbols-rounded text-leaf-900">
+            {isTextVisible
+              ? "keyboard_double_arrow_left"
+              : "keyboard_double_arrow_right"}
+          </span>
+        </button>
+        {isTextVisible && <span className="retext text-3xl mr-4">Resapling</span>}
+      </div>
+      {/* Navigation menu */}
+      <ul className={`p-4 h-screen menu ${!isTextVisible ? "px-2" : ""}`}>
+        <li className="space-y-2">
           <Link
-            className={isActive("/dashboard")}
+            className={`${isActive("/dashboard")} flex items-center ${
+              !isTextVisible ? "justify-center" : "space-x-3"
+            } p-2 hover:bg-leaf-100 transition-colors`}
             href="/dashboard"
-            onClick={closeMenu}
+            onClick={() => {}}
+            title="Dashboard"
           >
             <span className="material-symbols-rounded">dashboard</span>
-            Dashboard
+            {isTextVisible && <span>Dashboard</span>}
           </Link>
+
           <Link
-            className={isActive("/dashboard/campaign")}
+            className={`${isActive("/dashboard/campaign")} flex items-center ${
+              !isTextVisible ? "justify-center" : "space-x-3"
+            } p-2 hover:bg-leaf-100 transition-colors`}
             href="/dashboard/campaign"
-            onClick={closeMenu}
+            onClick={() => {}}
+            title="Kampanye"
           >
             <span className="material-symbols-rounded">volunteer_activism</span>
-            Kampanye
+            {isTextVisible && <span>Kampanye</span>}
           </Link>
+
           <Link
-            className={isActive("/dashboard/leaderboard")}
+            className={`${isActive(
+              "/dashboard/leaderboard"
+            )} flex items-center ${
+              !isTextVisible ? "justify-center" : "space-x-3"
+            } p-2 hover:bg-leaf-100 transition-colors`}
             href="/dashboard/leaderboard"
-            onClick={closeMenu}
+            onClick={() => {}}
+            title="LeaderBoard"
           >
             <span className="material-symbols-rounded">leaderboard</span>
-            LeaderBoard
+            {isTextVisible && <span>LeaderBoard</span>}
           </Link>
+
           <Link
-            className={isActive("/dashboard/upgrade")}
+            className={`${isActive("/dashboard/upgrade")} flex items-center ${
+              !isTextVisible ? "justify-center" : "space-x-3"
+            } p-2 hover:bg-leaf-100 transition-colors`}
             href="/dashboard/upgrade"
-            onClick={closeMenu}
+            onClick={() => {}}
+            title="Upgrade"
           >
             <span className="material-symbols-rounded">
               keyboard_double_arrow_up
             </span>
-            Upgrade
+            {isTextVisible && <span>Upgrade</span>}
           </Link>
+
           <Link
-            className={isActive("/dashboard/admin")}
+            className={`${isActive("/dashboard/admin")} flex items-center ${
+              !isTextVisible ? "justify-center" : "space-x-3"
+            } p-2 hover:bg-leaf-100 transition-colors`}
             href="/dashboard/admin"
-            onClick={closeMenu}
+            onClick={() => {}}
+            title="Admin"
           >
             <span className="material-symbols-rounded">person</span>
-            admin
+            {isTextVisible && <span>Admin</span>}
           </Link>
-          {/* Ganti Link dengan button untuk logout */}
+
           {show && (
             <>
               <Link
-                className={isActive("/dashboard/admin/data")}
+                className={`${isActive(
+                  "/dashboard/admin/data"
+                )} flex items-center ${
+                  !isTextVisible ? "justify-center" : "space-x-3"
+                } p-2 hover:bg-leaf-100 transition-colors`}
                 href="/dashboard/admin/data"
-                onClick={closeMenu}
+                onClick={() => {}}
+                title="Data"
               >
                 <span className="material-symbols-rounded">
                   subdirectory_arrow_right
                 </span>
-                <span className="">data</span>
+                {isTextVisible && <span>Data</span>}
               </Link>
+
               <Link
-                className={isActive("/dashboard/admin/campaign")}
+                className={`${isActive(
+                  "/dashboard/admin/campaign"
+                )} flex items-center ${
+                  !isTextVisible ? "justify-center" : "space-x-3"
+                } p-2 hover:bg-leaf-100 transition-colors`}
                 href="/dashboard/admin/campaign"
-                onClick={closeMenu}
+                onClick={() => {}}
+                title="Campaign"
               >
                 <span className="material-symbols-rounded">
                   subdirectory_arrow_right
                 </span>
-                <span className="">Campaign</span>
+                {isTextVisible && <span>Campaign</span>}
               </Link>
               <Link
-                className={isActive("/dashboard/admin/profile")}
+                className={`${isActive(
+                  "/dashboard/admin/profile"
+                )} flex items-center ${
+                  !isTextVisible ? "justify-center" : "space-x-3"
+                } p-2 hover:bg-leaf-100 transition-colors`}
                 href="/dashboard/admin/profile"
-                onClick={closeMenu}
+                onClick={() => {}}
+                title="Profile"
               >
                 <span className="material-symbols-rounded">
                   subdirectory_arrow_right
                 </span>
-                <span className="">Profile</span>
+                {isTextVisible && <span>Profile</span>}
               </Link>
             </>
           )}
+          {/* Ganti Link dengan button untuk logout */}
           <button
             className="text-leaf-900 rounded-full flex items-center gap-3 px-4 py-2 hover:bg-leaf-100 transition-colors"
             onClick={handleLogout}

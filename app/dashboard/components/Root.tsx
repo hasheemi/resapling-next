@@ -5,15 +5,17 @@ import Sidebar from "./Sidebar";
 import LeaderBoard from "./LeaderBoard";
 import { useAuth } from "../../../hooks/useAuth"; // Import useAuth
 import { useRouter } from "next/navigation"; // Import useRouter
+import { SidebarProvider, useSidebar } from "./SidebarContext";
 
 interface RootProps {
   children: React.ReactNode;
   show?: boolean;
 }
 
-export default function Root({ children, show = false }: RootProps) {
+function RootContent({ children, show = false }: RootProps) {
   const { user, loading } = useAuth();
   const router = useRouter();
+  const { isTextVisible } = useSidebar();
 
   // Redirect jika user belum login
   useEffect(() => {
@@ -47,14 +49,22 @@ export default function Root({ children, show = false }: RootProps) {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0"
       />
       <div data-theme="emerald">
-        <div className="w-full bg-leaf-300 flex flex-row">
+        <div className="w-full bg-leaf-300 flex flex-row relative">
           <Sidebar show={show} />
-          <div className="w-full p-4 h-screen bg-leaf-50 flex flex-col gap-4">
+          <div className="w-full p-4 bg-leaf-50 flex flex-col gap-4 items-center">
             {/* Content */}
             {children}
           </div>
         </div>
       </div>
     </>
+  );
+}
+
+export default function Root({ children, show = false }: RootProps) {
+  return (
+    <SidebarProvider>
+      <RootContent children={children} show={show} />
+    </SidebarProvider>
   );
 }

@@ -34,7 +34,7 @@ export default function Campaign() {
   return (
     <Root>
         {/* Filter start */}
-        <div className="top-0 w-full space-y-4 fixed bg-leaf-50 z-50 p-4 shadow-sm">
+        <div className="w-full space-y-4 bg-leaf-50 fixed top-0 left-60 p-4 z-50 shadow-sm">
           <p className="text-2xl font-bold"> Kampanye </p>
           {/* 🔍 Search + Sort + Filter */}
           <div className="search flex flex-row justify-start w-full items-center gap-3 px-6 sm:px-12 mx-auto py-3 bg-leaf-50 rounded-xl shadow-sm">

@@ -34,7 +34,7 @@ export default function Campaign() {
 
   return (
     <Root show={true}>
-      <div className="top-0 w-full space-y-4 fixed bg-leaf-50 z-50 p-4 shadow-sm">
+      <div className={`top-0 w-full space-y-4 fixed bg-leaf-50 z-50 p-4 shadow-sm left-60`}>
         <div className="w-full p-4 flex justify-between">
           <div>
             <h3 className="text-3xl text-black"> Halo {userName}</h3>
