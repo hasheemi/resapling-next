@@ -263,10 +263,11 @@ export default function Upgrade() {
         }
       });
 
-      // Kirim ke API
-      const response = await fetch("/api/upgrade", {
+      // PERBAIKAN: Tambahkan http:// pada URL
+      const response = await fetch("http://localhost:4000/api/upgrade", {
         method: "POST",
         body: submitFormData,
+        // PERBAIKAN: Jangan set headers untuk FormData, browser akan otomatis set Content-Type dengan boundary
       });
 
       if (response.ok) {
@@ -274,13 +275,21 @@ export default function Upgrade() {
         console.log("Success:", result);
         alert("Data berhasil dikirim!");
       } else {
-        throw new Error("Failed to submit data");
+        // PERBAIKAN: Tambahkan error handling yang lebih informatif
+        const errorText = await response.text();
+        console.error("Server error:", response.status, errorText);
+        throw new Error(
+          `Failed to submit data: ${response.status} ${errorText}`
+        );
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Terjadi kesalahan saat mengirim data");
+      alert(
+        "Terjadi kesalahan saat mengirim data: " + (error as Error).message
+      );
     }
   };
+
   const renderStepContent = () => {
     switch (Step) {
       case 0:
