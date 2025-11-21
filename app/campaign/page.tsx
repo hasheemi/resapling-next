@@ -43,9 +43,9 @@ export default function Campaign() {
       />
       <div className="w-full space-y-4">
         {/* 🔍 Search + Sort + Filter */}
-        <div className="search flex flex-row justify-between w-full items-center gap-3 px-6 sm:px-12 mx-auto py-3 bg-leaf-50 rounded-xl shadow-sm">
+        <div className="search flex flex-col md:flex-row justify-between w-full items-center gap-3 px-6 sm:px-12 mx-auto py-3 bg-leaf-50 rounded-xl shadow-sm">
           {/* Search Input */}
-          <div className="w-[60%] border border-leaf-500 rounded-lg relative">
+          <div className="w-full md:w-[60%] border border-leaf-500 rounded-lg relative">
             <input
               type="text"
               placeholder="Cari program donasi terbaru..."
@@ -55,7 +55,7 @@ export default function Campaign() {
           </div>
 
           {/* Sort & Filter Buttons */}
-          <div className="flex flex-row gap-4 w-2/5 justify-end">
+          <div className="flex flex-row gap-4 w-full md:w-2/5 justify-end">
             {/* Urutkan */}
             <div
               onClick={() =>

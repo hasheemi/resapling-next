@@ -31,7 +31,11 @@ export default function RootLayout({
           href="https://unpkg.com/aos@2.3.2/dist/aos.css"
           rel="stylesheet"
         />
-        
+        <link
+          href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+          rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
         <script src="https://unpkg.com/aos@2.3.2/dist/aos.js"></script>
       </head>
       <body className={` antialiased`}>
