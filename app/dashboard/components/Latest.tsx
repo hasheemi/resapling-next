@@ -3,9 +3,19 @@ import React, { PureComponent } from "react";
 export class Latest extends PureComponent {
   render() {
     return (
-      <div className="w-full card card-xs bg-base-200 p-2">
-        <span className="text-xl font-bold p-2">Terbaru</span>
-        {LeaderBoardItem.map((item, index) => (
+      <div className="w-full card card-xs bg-white shadow-sm p-4">
+        <span className="text font-bold">Donasi Terbaru</span>
+        <div className="flex items-center gap-2">
+        {LeaderBoardItem[0].amount > 30000 ? <>
+                <i 
+          className="bx bxs-up-arrow bx-sm" 
+          style={{ color: "green" }}
+        ></i></> : 
+        <><i className='bx bxs-down-arrow' ></i></> }
+        <p className="text-4xl font-bold">Rp. {LeaderBoardItem[0].amount}</p>
+        <div className="badge my-1 badge-success">{LeaderBoardItem[0].change}</div>
+        </div>
+        {/* {LeaderBoardItem.map((item, index) => (
           <div key={index}>
             <button className="w-full flex flex-row items-center justify-center hover:bg-base-300 transition duration-150 p-2">
               <div className="avatar">
@@ -18,11 +28,8 @@ export class Latest extends PureComponent {
                 <div className="badge my-1 badge-success">{item.change}</div>
               </div>
             </button>
-            {index != LeaderBoardItem.length - 1 && (
-              <div className="h-[0.5] rounded mx-4 bg-base-300"></div>
-            )}
           </div>
-        ))}
+        ))} */}
       </div>
     );
   }
@@ -33,7 +40,7 @@ const LeaderBoardItem = [
     image:
       "https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=723&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     name: "John Smith",
-    amount: "Rp100.000",
+    amount: 100000,
     change: "+10%",
   },
 ];

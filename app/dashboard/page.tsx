@@ -12,13 +12,13 @@ export default class Dashboard extends Component {
   render() {
     return (
       <Root>
-        <div className="w-full p-2 bg-base-200 rounded-box flex flex-row items-center">
+        <div className="w-full p-2 bg-white border-4 border-solid border-leaf-700 rounded-box flex flex-row items-center">
           <div className="w-16 rounded-full overflow-hidden">
             <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
           </div>
           <div className="px-4 flex-1">
             <p className="text-lg">Welcome Aaron</p>
-            <div className="badge badge-warning">Warning</div>
+            <div className="badge badge-primary">User</div>
           </div>
           <button className="btn btn-square btn-ghost">
             <span className="material-symbols-rounded">edit</span>

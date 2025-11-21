@@ -1,15 +1,42 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "../../../hooks/useAuth"; // Import useAuth
 
 export default function Sidebar({ show = false }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [ isTextVisible, setIsTextVisible ] = useState(false);
-  const pathname = usePathname();
+  const [isTextVisible, setIsTextVisible] = useState(true);
   const { logout } = useAuth(); // Ambil fungsi logout dari useAuth
+  const pathname = usePathname();
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        setIsTextVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout(); // Panggil fungsi logout
+    closeMenu();
+  };
 
   const toggleTextVisibility = () => {
     setIsTextVisible(!isTextVisible);
@@ -21,17 +48,9 @@ export default function Sidebar({ show = false }) {
       : "text-leaf-900 rounded-full";
   };
 
-    const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-    const handleLogout = () => {
-    logout(); // Panggil fungsi logout
-    closeMenu();
-  };
-
   return (
     <div
+      ref={sidebarRef}
       className={`flex flex-col ${
         isTextVisible ? "w-60" : "w-20"
       } transition-all duration-300`}
@@ -159,7 +178,7 @@ export default function Sidebar({ show = false }) {
                 } p-2 hover:bg-leaf-100 transition-colors`}
                 href="/dashboard/admin/profile"
                 onClick={() => {}}
-                title="Profile"
+                title="Campaign"
               >
                 <span className="material-symbols-rounded">
                   subdirectory_arrow_right
@@ -168,13 +187,16 @@ export default function Sidebar({ show = false }) {
               </Link>
             </>
           )}
-          {/* Ganti Link dengan button untuk logout */}
           <button
-            className="text-leaf-900 rounded-full flex items-center gap-3 px-4 py-2 hover:bg-leaf-100 transition-colors"
+            className={`${isActive(
+                  "/dashboard/admin/logout"
+                )} flex items-center ${
+                  !isTextVisible ? "justify-center" : "space-x-3"
+                } p-2 hover:bg-leaf-100 transition-colors`}
             onClick={handleLogout}
           >
             <span className="material-symbols-rounded">logout</span>
-            Logout
+            {isTextVisible && <span>Logout</span>}
           </button>
         </li>
       </ul>

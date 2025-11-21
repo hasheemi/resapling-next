@@ -3,11 +3,11 @@ import React, { PureComponent } from "react";
 export class LeaderBoard extends PureComponent {
   render() {
     return (
-      <div className="w-full card card-xs bg-base-200 p-2">
+      <div className="w-full card card-xs bg-white p-2">
         <span className="text-xl font-bold p-2">LeaderBoard</span>
         {LeaderBoardItem.map((item, index) => (
           <div key={index}>
-            <button className="w-full flex flex-row items-center justify-center hover:bg-base-300 transition duration-150 p-2">
+            <div className={`rounded-t-lg w-full flex flex-row items-center justify-center transition duration-150 p-2 ${index == 0 ? `hover:bg-green-500` : index == 1 ? `hover:bg-green-400` : index == 2 ? `hover:bg-green-300` : `hover:bg-green-100`}`}>
               <div className="text-4xl font-thin opacity-30 tabular-nums mr-4">{index+1}</div>
               <div className="avatar">
                 <div className="w-14 rounded-full">
@@ -18,7 +18,7 @@ export class LeaderBoard extends PureComponent {
                 <span className="">{item.name} : {item.amount}</span>
                 <div className="badge my-1 badge-success">{item.change}</div>
               </div>
-            </button>
+            </div>
             {index != LeaderBoardItem.length - 1 && (
               <div className="h-[0.5] rounded mx-4 bg-base-300"></div>
             )}

@@ -26,9 +26,9 @@ export default class Profile extends Component {
     <Root show={true}>
         <>
         <div className="flex justify-between items-center border-b border-gray-200">
-                    <h2 className="text-2xl font-semibold text-gray-800">Profile</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">Profile</h2>
         </div>
-    <div className="w-full h-screen bg-leaf-50 flex flex-col gap-4">
+    <div className="w-full bg-leaf-50 flex flex-col gap-4">
         <div className="bg-gray-100 max-w-7xl rounded-lg shadow-lg flex">
             {/*
             <!-- Sidebar Profile --> */}
