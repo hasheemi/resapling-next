@@ -305,8 +305,8 @@ export default function About() {
           >
             <div className="team-image-wrapper">
               <Image
-                src="/assets/img/person/yafi.png"
-                alt="Firdaus Yafi"
+                src="/assets/img/person/photo1.jpg"
+                alt="Raul"
                 width={200}
                 height={200}
                 className="team-image"
@@ -315,7 +315,7 @@ export default function About() {
                 <i className="bx bxl-instagram"></i>
               </div>
             </div>
-            <h3 className="team-name">Firdaus Yafi</h3>
+            <h3 className="team-name">Raul Hernandez</h3>
             <p className="team-role">Project Manager</p>
           </div>
           <div className="separator"></div>
@@ -327,8 +327,8 @@ export default function About() {
           >
             <div className="team-image-wrapper">
               <Image
-                src="/assets/img/person/semi.png"
-                alt="Hasheemi Rafsanjani"
+                src="/assets/img/person/photo2.jpg"
+                alt="Richard"
                 width={200}
                 height={200}
                 className="team-image"
@@ -337,7 +337,7 @@ export default function About() {
                 <i className="bx bxl-instagram"></i>
               </div>
             </div>
-            <h3 className="team-name">Hasheemi Rafsanjani</h3>
+            <h3 className="team-name">Ricardo Kaka</h3>
             <p className="team-role">Software Developer</p>
           </div>
           <div className="separator"></div>
@@ -349,7 +349,7 @@ export default function About() {
           >
             <div className="team-image-wrapper">
               <Image
-                src="/assets/img/person/alvin.png"
+                src="/assets/img/person/photo3.jpg"
                 alt="Alvin Adinata"
                 width={200}
                 height={200}
@@ -359,7 +359,7 @@ export default function About() {
                 <i className="bx bxl-instagram"></i>
               </div>
             </div>
-            <h3 className="team-name">Alvin Adinata</h3>
+            <h3 className="team-name">Sukma Adinata</h3>
             <p className="team-role">Creative Designer</p>
           </div>
         </div>
