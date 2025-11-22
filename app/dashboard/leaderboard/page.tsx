@@ -9,17 +9,17 @@ export default class Dashboard extends Component {
     return (
       <Root>
         <div className="w-full max-w-3xl flex flex-row gap-4 ">
-          <Podium item={LeaderBoardItem[1]} index={1}/>
-          <Podium item={LeaderBoardItem[0]} index={0}/>
-          <Podium item={LeaderBoardItem[2]} index={2}/>
+          <Podium item={LeaderBoardItem[1]} index={1} />
+          <Podium item={LeaderBoardItem[0]} index={0} />
+          <Podium item={LeaderBoardItem[2]} index={2} />
         </div>
-        <div className="w-full card bg-base-200 p-2 max-w-3xl">
+        <div className="w-full card bg-base-100 p-4 ">
           <span className="text-xl font-bold p-2">LeaderBoard</span>
           {LeaderBoardItem.map((item, index) => (
             <div key={index}>
               {index >= 3 && (
                 <>
-                  <button className="w-full flex flex-row items-center justify-center hover:bg-base-300 transition duration-150 p-2">
+                  <button className="w-full flex flex-row items-center justify-center hover:bg-base-300 transition duration-150 p-4 my-4 bg-leaf-100">
                     <div className="text-4xl font-thin opacity-30 tabular-nums mr-4">
                       {index + 1}
                     </div>

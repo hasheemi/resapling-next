@@ -24,9 +24,9 @@ function Podium({ item, index }: PodiumProps) {
           <span>{item.amount}</span>
         </div>
         <div
-          className={`bg-base-200 w-full rounded-box p-4 ${heightClass} flex items-center justify-center`}
+          className={`bg-leaf-500 w-full rounded-box p-4 ${heightClass} flex items-center justify-center`}
         >
-          <div className="text-4xl font-thin opacity-30 tabular-nums mr-4">
+          <div className="text-4xl font-medium text-white tabular-nums mr-4">
             {index + 1}
           </div>
         </div>

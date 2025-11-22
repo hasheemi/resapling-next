@@ -227,7 +227,10 @@ export default function Page({ params }: PageProps) {
               </h3>
               <div className="bg-white p-4 rounded-lg border-2 border-dashed border-gray-300 flex justify-center">
                 <div className="w-48 h-48 bg-gray-200 flex items-center justify-center text-gray-500">
-                  [QRIS Image]
+                  <img
+                    src="https://d2v6npc8wmnkqk.cloudfront.net/storage/26035/conversions/Tipe-QRIS-statis-small-large.jpg"
+                    alt=""
+                  />
                 </div>
               </div>
               <p className="text-sm text-gray-600 text-center mt-3">

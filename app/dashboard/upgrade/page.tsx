@@ -2,7 +2,6 @@
 
 import { Component, useState } from "react";
 import Root from "../components/Root";
-import LeaderBoard from "../components/LeaderBoard";
 
 function Biodata({
   formData,
@@ -393,7 +392,7 @@ export default function Upgrade() {
           <div className="w-full max-w-2xl bg-gray-200 rounded-xl p-4 flex flex-col gap-3">
             {renderStepContent()}
             <button
-              className="btn btn-success w-full mt-4"
+              className="btn btn-success w-full mt-4 !bg-leaf-700 !text-white"
               onClick={handleStepButtonClick}
             >
               {Step < 3 ? "Next" : "Submit"}

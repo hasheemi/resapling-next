@@ -76,6 +76,15 @@ export default function Navbar() {
             </li>
             <li>
               <Link
+                href="/campaign"
+                className={isActive("/campaign")}
+                onClick={closeMenu}
+              >
+                Donasi
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/login"
                 className={isActive("/login")}
                 onClick={closeMenu}
